@@ -1,0 +1,41 @@
+{
+  "name": "AudreyDiez_4_28012021",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "start": "webpack serve --open 'Chrome'",
+    "lint": "eslint --max-warnings=0 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/audreydiez/AudreyDiez_4_28012021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/audreydiez/AudreyDiez_4_28012021/issues"
+  },
+  "homepage": "https://github.com/audreydiez/AudreyDiez_4_28012021#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.18.0",
+    "eslint-webpack-plugin": "^2.4.3",
+    "html-webpack-plugin": "^4.5.1",
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1",
+    "source-map-loader": "^2.0.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.18.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dashboard": "^3.3.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
