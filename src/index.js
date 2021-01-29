@@ -1,8 +1,26 @@
 import "./assets/scss/style.scss";
-console.log("Hello webpack!");
+console.log("lol");
 
-const fancyFunc = () => {
-    return [1, 2];
-};
+function editNav() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
-const [a, b] = fancyFunc();
+// DOM Elements
+const modalbg = document.querySelector(".bground");
+const modalBtn = document.querySelectorAll(".modal-btn");
+const formData = document.querySelectorAll(".formData");
+
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// launch modal form
+function launchModal() {
+    modalbg.style.display = "block";
+}
+
+
