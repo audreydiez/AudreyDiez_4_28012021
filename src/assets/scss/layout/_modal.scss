@@ -53,10 +53,10 @@
 
 label {
     font-family: var(--font-default);
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: normal;
     display: inline-block;
-    margin-bottom: 11px;
+    margin: 1.5rem 0 1rem 0;
 }
 input {
     padding: 8px;
@@ -184,7 +184,7 @@ input[data-error]::after {
 .close:after {
     transform: rotate(-45deg);
 }
-.btn-submit,
+
 
 /* custom select styles */
 .custom-select {
@@ -256,4 +256,27 @@ input[data-error]::after {
 .text-label {
     font-weight: normal;
     font-size: 16px;
+    margin: 1.5rem 0 0 0;
+}
+
+.btn-submit {
+    outline: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    color: #fff;
+    background: #fe142f;
+    display: block;
+    border-radius: 7px;
+    cursor: pointer;
+    border-color: transparent;
+    width: 150px;
+    margin: 0 auto;
+
+    &:hover{
+        background: #3876ac;
+    }
+    @media screen and (max-width: 1300px) {
+        margin-top: 1rem;
+    }
 }
