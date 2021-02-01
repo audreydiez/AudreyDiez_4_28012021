@@ -1,6 +1,7 @@
 import "./assets/scss/style.scss";
 console.log("lol");
 
+
 function editNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -24,3 +25,4 @@ function launchModal() {
 }
 
 
+window.editNav = editNav;

@@ -1,0 +1,59 @@
+:root {
+    --font-default: "DM Sans", Arial, Helvetica, sans-serif;
+    --font-slab: var(--font-default);
+    --modal-duration: 0.8s;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Landing Page */
+
+body {
+    font-family: var(--font-default);
+    font-size: 18px;
+    margin: 0 auto;
+}
+
+p {
+    margin-bottom: 0;
+    padding: 0.5rem;
+}
+
+img {
+    padding-right: 1rem;
+}
+
+
+
+
+
+
+.footer {
+    margin: 20px;
+    padding: 10px;
+    font-family: var(--font-slab);
+}
+
+/* Modal form */
+
+
+
+
+footer {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: 0 20px;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
