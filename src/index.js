@@ -1,10 +1,12 @@
 import "./assets/scss/style.scss";
+import "./form.js";
 
 // DOM Elements
-const modalbg = document.querySelector(".bground");
+const modalBg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalCloseBtn = document.querySelector(".close");
 const formData = document.querySelectorAll(".formData");
+const modalContent = document.getElementById("content");
 
 // Hamburger menu on small device
 function editNav() {
@@ -20,12 +22,20 @@ function editNav() {
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalCloseBtn.addEventListener("click", closeModal);
 
-// launch & close modal form
+
+
+modalContent.addEventListener('click', (e) => e.stopPropagation())
+
+modalBg.addEventListener('click', () => {
+    closeModal();
+})
+
+// launch & close function
 function launchModal() {
-    modalbg.style.display = "block";
+    modalBg.style.display = "block";
 }
 function closeModal() {
-    modalbg.style.display = "none";
+    modalBg.style.display = "none";
 }
 
 
