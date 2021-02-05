@@ -38,7 +38,7 @@ const formCheck = {
         lastName : "Votre nom doit contenir au moins deux caractères.",
         email : "Vous devez entrer un email valide.",
         birthdate : "Vous devez entrer une date de naissance",
-        gameOnParticipation : "Si vous n\'avez jamais participé, indiquez \'0\'",
+        gameOnParticipation : "Si vous n\'avez jamais participé, indiquez \'0\'.",
         city : "Vous devez choisir une option.",
         conditionsAccepted : "Vous devez accepter les termes et conditions"
     }
@@ -122,11 +122,11 @@ function checkInputs (input) {
             let cityRadioBlock = document.querySelectorAll('input[type="radio"]:checked');
             if (cityRadioBlock.length !== 1 ) {
                 formCheck.inputs.city = false;
-                toggleErrorMsg(input);
+                toggleErrorMsg(input, false);
 
             }
             else {
-                hideErrorMsg(input);
+                hideErrorMsg(input, false);
                 formCheck.inputs.city = true;
             }
         }
@@ -134,23 +134,28 @@ function checkInputs (input) {
         else if (input.toString() === "conditionsAccepted"){
             if (!conditionsAccepted.checked) {
                 formCheck.inputs.conditionsAccepted = false;
-                toggleErrorMsg(input);
+                toggleErrorMsg(input, false);
 
             }
             else {
-                hideErrorMsg(input);
+                hideErrorMsg(input, false);
                 formCheck.inputs.conditionsAccepted = true;
             }
         }
 
 }
 
-function toggleErrorMsg (input){
-    document.getElementById(input.toString() + "-msg").style.visibility = "visible";
-    document.getElementById(input.toString() + "-msg").innerHTML = formCheck.messages[input];
+function toggleErrorMsg (input, border = true){
+    let element = document.getElementById(input.toString() + "-msg");
+    element.style.visibility = "visible";
+    if (border) eval(input).style.border = "2px solid #fe142f";
+    element.innerHTML = formCheck.messages[input];
+
 }
-function hideErrorMsg (input){
-    document.getElementById(input.toString() + "-msg").style.visibility = "hidden";
+function hideErrorMsg (input,border = true){
+    let element = document.getElementById(input.toString() + "-msg");
+    element.style.visibility = "hidden";
+    if (border) eval(input).style.border = "2px solid transparent";
 }
 
 
