@@ -37,16 +37,14 @@
                 Vous aimez jouer ? Notre prochain évènement gaming est ouvert
                 aux réservations... Places limitées !
             </p>
-            <button class="btn-signup modal-btn">
+            <button class="btn-signup modal-btn" id="sign-up">
                 je m'inscris
             </button>
         </div>
         <div class="hero-img">
             <img src="src/assets/images/bg_img.jpg" alt="img"/>
         </div>
-        <button class="btn-signup modal-btn">
-            je m'inscris
-        </button>
+
     </div>
 
     <div class="bground">
@@ -101,13 +99,14 @@
                         <div class="form-error" id="birthdate-msg">Error</div>
                     </div>
                     <div class="formData">
-                        <br>
-                        <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                        <label class="tournament">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                         <input type="number" class="text-control" id="gameOnParticipation" name="quantity" min="0" max="99">
+                        <div class="form-error" id="gameOnParticipation-msg">Error</div>
                     </div>
-                    <div class="form-error" id="gameOnParticipation-msg">Error</div>
-                    <p class="text-label">Quelles villes ?</p>
+
+
                     <div class="formData">
+                        <label>Quelle ville ?</label><br>
                         <input
                                 class="checkbox-input"
                                 type="radio"
@@ -178,7 +177,6 @@
                     </div>
 
                     <div class="formData">
-                        <div class="form-error" id="conditionsAccepted-msg">Error</div>
                         <input
                                 class="checkbox-input"
                                 type="checkbox"
@@ -190,26 +188,22 @@
                             J'ai lu et accepté les conditions d'utilisation.
                         </label>
 
-                        <input class="checkbox-input" type="checkbox" id="checkbox2"/>
-                        <label class="checkbox2-label" for="checkbox2">
+                        <input class="checkbox-input" type="checkbox" id="nextEvent"/>
+                        <label class="checkbox2-label" for="nextEvent">
                             <span class="checkbox-icon"></span>
                             Je souhaite être prévenu des prochains évènements.
                         </label>
                         <br>
+                        <div class="form-error form-error--centered" id="conditionsAccepted-msg">Error</div>
                     </div>
-                    <input
-                            class="btn-submit button"
-                            type="submit2"
-                            value="C'est parti2"
-                            id="btn-submit2"
-                    />
-                    <input
-                            class="btn-submit button"
-                            type="submit"
-                            value="C'est parti"
-                            id="btn-submit"
-                    />
                 </form>
+            </div>
+            <button type="submit" class="btn-submit" id="btn-submit">C'est parti</button>
+            <div class="modal-passed" id="modal-passed">
+                Merci !
+                <br>
+                <br>
+                Votre réservation a été reçue.
             </div>
         </div>
     </div>

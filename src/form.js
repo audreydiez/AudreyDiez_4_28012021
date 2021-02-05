@@ -2,13 +2,25 @@
 /*
  Get fields
 */
-const btnSubmit = document.getElementById("btn-submit2");
+const btnSubmit = document.getElementById("btn-submit");
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
 const gameOnParticipation = document.getElementById("gameOnParticipation");
 const birthdate = document.getElementById("birthdate");
 const conditionsAccepted = document.getElementById("conditionsAccepted");
+const radiosBtns = document.querySelectorAll("input[type=radio]")
+
+const modalBody = document.getElementById("modal-body");
+const modalPassed = document.getElementById("modal-passed");
+
+// DOM Elements
+const modalBg = document.querySelector(".bground");
+const modalBtn = document.getElementById("sign-up");
+const modalCloseBtn = document.querySelector(".close");
+const formData = document.querySelectorAll(".formData");
+const modalContent = document.getElementById("content");
+const nextEvent = document.getElementById("nextEvent");
 
 
 const formValues = {
@@ -48,8 +60,6 @@ const formCheck = {
 /*
  submit listener
 */
-btnSubmit.addEventListener("click", submitEngine);
-
 
 function checkInputs (input) {
 
@@ -172,10 +182,25 @@ function formCheckIsValid(){
     console.log("global "+ formCheck.global);
 }
 
+
+function displayPassedMessage (){
+
+    modalBody.style.left = parseFloat(getComputedStyle(modalBody).left) + -100 + '%';
+    setTimeout(function(){
+        modalPassed.style.display = "block";
+        }, 400);
+
+    // On transforme le bouton en close
+    btnSubmit.removeEventListener("click", submitEngine);
+    btnSubmit.addEventListener("click",closeModal);
+
+}
+
 /*
  Submit engine
 */
-function submitEngine () {
+function submitEngine (e) {
+    e.preventDefault();
 
     for (let input in formCheck.inputs) {
 
@@ -189,7 +214,12 @@ function submitEngine () {
 
     }
     if (formCheck.global){
+        displayPassedMessage();
+        initForm();
+        initErrorMsg();
+        btnSubmit.innerText = "Fermer";
         console.log("youpi");
+
     }
     //console.log(formCheck);
 }
@@ -199,7 +229,93 @@ function submitEngine () {
 
 
 
-// Envoi vers webpack
+// Hamburger menu on small device
+function editNav() {
+    let x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
+console.log(modalCloseBtn);
+// launch & close modal basic
+modalBtn.addEventListener("click", launchModal);
+modalCloseBtn.addEventListener("click", closeModal);
+
+
+// Fermeture de la modal au click sur le background
+modalContent.addEventListener('click', (e) => e.stopPropagation());
+modalBg.addEventListener('click',  closeModal);
+
+
+// launch & close function
+function launchModal() {
+
+    modalBg.style.display = "block";
+
+    // MARCHE PAS
+
+    btnSubmit.addEventListener("click", submitEngine);
+    btnSubmit.removeEventListener("click", closeModal);
+    btnSubmit.innerHTML = "C'est Parti";
+}
+function closeModal() {
+
+
+    modalBody.style.left = "0";
+    modalBg.style.display = "none";
+    modalPassed.style.display = "none";
+
+
+}
+function initForm() {
+
+
+    // Pour chaque input, mettre value à ""
+    for (let input in formCheck.inputs) {
+        if(input.toString() === "city"){
+            for (let i = 0; i < radiosBtns.length; i++)
+            {
+                radiosBtns[i].checked = false;
+            }
+        }
+        else if (input.toString() === "conditionsAccepted"){
+            conditionsAccepted.checked = true;
+        }
+        else {
+            eval(input).value = "";
+        }
+        input = false;
+        nextEvent.checked = false;
+    }
+    formCheck.global = false;
+
+}
+function initErrorMsg() {
+
+    // Pour chaque input, enlever les messages d'erreurs
+
+    for (let input in formCheck.inputs) {
+
+        if(input.toString() === "city" || input.toString() === "conditionsAccepted"){
+            hideErrorMsg(input, false);
+        }
+        else {
+            hideErrorMsg(input);
+        }
+    }
+
+
+
+
+
+
+
+}
+
+// Envoi vers webpack
+window.editNav = editNav;
 window.formCheck = formCheck;
 window.submitEngine = submitEngine;
