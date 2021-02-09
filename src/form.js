@@ -16,8 +16,8 @@ const modalPassed = document.getElementById("modal-passed");
 
 // DOM Elements
 const modalBg = document.querySelector(".bground");
-const modalBtn = document.getElementById("sign-up");
-const modalCloseBtn = document.querySelector(".close");
+const modalBtn = document.querySelectorAll(".btn-signup");
+const modalCloseBtn = document.getElementById("close-icon");
 const formData = document.querySelectorAll(".formData");
 const modalContent = document.getElementById("content");
 const nextEvent = document.getElementById("nextEvent");
@@ -193,6 +193,7 @@ function displayPassedMessage (){
     // On transforme le bouton en close
     btnSubmit.removeEventListener("click", submitEngine);
     btnSubmit.addEventListener("click",closeModal);
+    btnSubmit.innerText = "Fermer";
 
 }
 
@@ -217,7 +218,6 @@ function submitEngine (e) {
         displayPassedMessage();
         initForm();
         initErrorMsg();
-        btnSubmit.innerText = "Fermer";
         console.log("youpi");
 
     }
@@ -239,9 +239,10 @@ function editNav() {
     }
 }
 
-console.log(modalCloseBtn);
+
 // launch & close modal basic
-modalBtn.addEventListener("click", launchModal);
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+//modalBtn.addEventListener("click", launchModal);
 modalCloseBtn.addEventListener("click", closeModal);
 
 
@@ -255,11 +256,12 @@ function launchModal() {
 
     modalBg.style.display = "block";
 
-    // MARCHE PAS
 
-    btnSubmit.addEventListener("click", submitEngine);
     btnSubmit.removeEventListener("click", closeModal);
     btnSubmit.innerHTML = "C'est Parti";
+    btnSubmit.addEventListener("click", submitEngine);
+    initErrorMsg();
+
 }
 function closeModal() {
 

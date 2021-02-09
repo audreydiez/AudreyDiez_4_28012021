@@ -66,13 +66,13 @@
 
 
 .close {
+    z-index: 1;
     position: absolute;
     right: 15px;
     top: 15px;
     width: 32px;
     height: 32px;
     opacity: 1;
-    cursor: pointer;
     transform: scale(0.7);
 }
 .close:before,
