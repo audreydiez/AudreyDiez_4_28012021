@@ -1,8 +1,9 @@
+import { closeModal } from "./index";
 
 /*
  Get fields
 */
-const btnSubmit = document.getElementById("btn-submit");
+
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
@@ -10,30 +11,17 @@ const gameOnParticipation = document.getElementById("gameOnParticipation");
 const birthdate = document.getElementById("birthdate");
 const conditionsAccepted = document.getElementById("conditionsAccepted");
 const radiosBtns = document.querySelectorAll("input[type=radio]")
-
-const modalBody = document.getElementById("modal-body");
-const modalPassed = document.getElementById("modal-passed");
-
-// DOM Elements
-const modalBg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".btn-signup");
-const modalCloseBtn = document.getElementById("close-icon");
-const formData = document.querySelectorAll(".formData");
-const modalContent = document.getElementById("content");
 const nextEvent = document.getElementById("nextEvent");
+/*
+ Get DOM
+*/
+export const btnSubmit = document.getElementById("btn-submit");
+export const modalBody = document.getElementById("modal-body");
+export const modalPassed = document.getElementById("modal-passed");
 
-
-const formValues = {
-    firstName : '',
-    lastName : '',
-    email : '',
-    birthdate : '',
-    gameOnParticipation : '',
-    city : '',
-    conditionsAccepted : false,
-    nextEventsSub : false
-}
-
+/*
+ Validation globale
+*/
 const formCheck = {
     global : false,
     inputs : {
@@ -201,7 +189,7 @@ function displayPassedMessage (){
  Submit engine
 */
 function submitEngine (e) {
-    e.preventDefault();
+    e.preventDefault(); // AVOIR
 
     for (let input in formCheck.inputs) {
 
@@ -221,59 +209,15 @@ function submitEngine (e) {
         console.log("youpi");
 
     }
-    //console.log(formCheck);
+    console.log(formCheck);
 }
 
 
-
-
-
-
-// Hamburger menu on small device
-function editNav() {
-    let x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-
-
-// launch & close modal basic
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-//modalBtn.addEventListener("click", launchModal);
-modalCloseBtn.addEventListener("click", closeModal);
-
-
-// Fermeture de la modal au click sur le background
-modalContent.addEventListener('click', (e) => e.stopPropagation());
-modalBg.addEventListener('click',  closeModal);
 
 
 // launch & close function
-function launchModal() {
 
-    modalBg.style.display = "block";
-
-
-    btnSubmit.removeEventListener("click", closeModal);
-    btnSubmit.innerHTML = "C'est Parti";
-    btnSubmit.addEventListener("click", submitEngine);
-    initErrorMsg();
-
-}
-function closeModal() {
-
-
-    modalBody.style.left = "0";
-    modalBg.style.display = "none";
-    modalPassed.style.display = "none";
-
-
-}
 function initForm() {
-
 
     // Pour chaque input, mettre value à ""
     for (let input in formCheck.inputs) {
@@ -283,19 +227,22 @@ function initForm() {
                 radiosBtns[i].checked = false;
             }
         }
+
         else if (input.toString() === "conditionsAccepted"){
             conditionsAccepted.checked = true;
         }
         else {
             eval(input).value = "";
         }
-        input = false;
+        // On réset la case "prévenu pour les prochains event"
         nextEvent.checked = false;
+        // On réset l'objet formCheck
+        input = false;
     }
     formCheck.global = false;
 
 }
-function initErrorMsg() {
+export function initErrorMsg() {
 
     // Pour chaque input, enlever les messages d'erreurs
 
@@ -309,15 +256,10 @@ function initErrorMsg() {
         }
     }
 
-
-
-
-
-
-
 }
 
+
+
 // Envoi vers webpack
-window.editNav = editNav;
 window.formCheck = formCheck;
 window.submitEngine = submitEngine;
