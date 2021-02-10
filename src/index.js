@@ -1,12 +1,11 @@
 import "./assets/scss/style.scss";
-import { btnSubmit, modalPassed,modalBody,  initErrorMsg } from "./form";
+import { btnSubmit, modalPassed,modalBody,  initErrorMsg, submitEngine } from "./form";
 
 
 // DOM Elements
 const modalBg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".btn-signup");
 const modalCloseBtn = document.getElementById("close-icon");
-const formData = document.querySelectorAll(".formData");
 const modalContent = document.getElementById("content");
 
 

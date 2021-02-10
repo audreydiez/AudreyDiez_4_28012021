@@ -12,6 +12,7 @@ const birthdate = document.getElementById("birthdate");
 const conditionsAccepted = document.getElementById("conditionsAccepted");
 const radiosBtns = document.querySelectorAll("input[type=radio]")
 const nextEvent = document.getElementById("nextEvent");
+
 /*
  Get DOM
 */
@@ -38,7 +39,7 @@ const formCheck = {
         lastName : "Votre nom doit contenir au moins deux caractères.",
         email : "Vous devez entrer un email valide.",
         birthdate : "Vous devez entrer une date de naissance",
-        gameOnParticipation : "Si vous n\'avez jamais participé, indiquez \'0\'.",
+        gameOnParticipation : "Si vous n'avez jamais participé, indiquez '0'.",
         city : "Vous devez choisir une option.",
         conditionsAccepted : "Vous devez accepter les termes et conditions"
     }
@@ -118,6 +119,7 @@ function checkInputs (input) {
 
         else if (input.toString() === "city"){
             let cityRadioBlock = document.querySelectorAll('input[type="radio"]:checked');
+            console.log(cityRadioBlock);
             if (cityRadioBlock.length !== 1 ) {
                 formCheck.inputs.city = false;
                 toggleErrorMsg(input, false);
@@ -150,6 +152,7 @@ function toggleErrorMsg (input, border = true){
     element.innerHTML = formCheck.messages[input];
 
 }
+
 function hideErrorMsg (input,border = true){
     let element = document.getElementById(input.toString() + "-msg");
     element.style.visibility = "hidden";
@@ -188,8 +191,8 @@ function displayPassedMessage (){
 /*
  Submit engine
 */
-function submitEngine (e) {
-    e.preventDefault(); // AVOIR
+export function submitEngine () {
+
 
     for (let input in formCheck.inputs) {
 
