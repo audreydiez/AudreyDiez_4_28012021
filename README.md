@@ -5,6 +5,8 @@
 </div>
 <div align="center">
   <strong>Créez une landing page avec Javascript</strong>
+<div></div>
+<br/>
 </div>
 
 <div align="center">
@@ -14,18 +16,22 @@
   </a>
   <!-- W3C  -->
   <a href="#">
-    <img alt="W3C Validation" src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Fgithub.com%2Faudreydiez%2FAudreyDiez_4_28012021%2Fblob%2Fmaster%2Fsrc%2Findex.html">
+   <img alt="W3C Validation" src="https://img.shields.io/w3c-validation/default?style=for-the-badge&targetUrl=https%3A%2F%2Faudreydiez.github.io%2FAudreyDiez_4_28012021%2F%23">
   </a> 
 </div>
 
 <div align="center">
   <h3>
     <a href="https://www.audreydiez.com">
-      Website
+      My Website
     </a>
     <span> | </span>
     <a href="https://github.com/audreydiez">
-      My page
+      My Github profile
+    </a> 
+    <span> | </span>
+    <a href="https://audreydiez.github.io/AudreyDiez_4_28012021/#">
+      The GameOn project
     </a>    
   </h3>
 </div>
@@ -66,5 +72,16 @@ const formCheck = {
 ## Installation
 For Running on your machine :
 
-Run `npm install`.
-Run `npm start` and enjoy :)
+Run `npm install`
+
+
+## Global Object
+In `'webpack.config.js'`, use following script for start hot reload server, build and push in `'gh-pages'` branch.
+```js
+"scripts": {
+    "dev": "webpack --mode development",
+    "start": "webpack serve --open 'Chrome'",
+    "build": "webpack build",
+    "deploy": "gh-pages -d dist"
+  },
+```
