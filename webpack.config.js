@@ -57,8 +57,8 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: "**/*",
-                    to: "dist/src/images/",
+                    from: "src/assets/images",
+                    to: "./assets/images/",
                 }
             ]
         })
