@@ -1,5 +1,70 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+<h1 align="center">Projet GameOn</h1>
+
+<div align="center">
+  
+</div>
+<div align="center">
+  <strong>Créez une landing page avec Javascript</strong>
+</div>
+
+<div align="center">
+  <!-- Last Commit -->
+  <a href="h#">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/audreydiez/AudreyDiez_4_28012021?style=for-the-badge">     
+  </a>
+  <!-- W3C  -->
+  <a href="#">
+    <img alt="W3C Validation" src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Fgithub.com%2Faudreydiez%2FAudreyDiez_4_28012021%2Fblob%2Fmaster%2Fsrc%2Findex.html">
+  </a> 
+</div>
+
+<div align="center">
+  <h3>
+    <a href="https://www.audreydiez.com">
+      Website
+    </a>
+    <span> | </span>
+    <a href="https://github.com/audreydiez">
+      My page
+    </a>    
+  </h3>
+</div>
+
+## Features
+- __Vanilla code:__ No Bootstrap, no jquery, no Js Framework
+- __CSS:__ Vanilla CSS refactored with SCSS for maintainability
+- __Javascript POO:__ Form validation use global object Formcheck
+- __Responsive:__ built for Desktop, tablet and mobile
+- __Webpack ready:__ Package with SASS, ESlint, Babel-loader for JS compiler/transpiler
+- __Commented:__ Yes !
+
+## Global Object 
+```js
+const formCheck = {
+    global : false,
+    inputs : {
+        firstName : false,
+        lastName : false,
+        email : false,
+        birthdate : false,
+        gameOnParticipation : false,
+        city : false,
+        conditionsAccepted : false
+    },
+    messages : {
+        firstName : "Votre prénom doit contenir au moins deux caractères.",
+        lastName : "Votre nom doit contenir au moins deux caractères.",
+        email : "Vous devez entrer un email valide.",
+        birthdate : "Vous devez entrer une date de naissance",
+        gameOnParticipation : "Si vous n'avez jamais participé, indiquez '0'.",
+        city : "Vous devez choisir une option.",
+        conditionsAccepted : "Vous devez accepter les termes et conditions"
+    }
+}
+```
+
+## Installation
+For Running on your machine :
+
+Run `npm install`.
+Run `npm start` and enjoy :)
