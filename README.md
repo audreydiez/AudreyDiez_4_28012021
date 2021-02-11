@@ -11,12 +11,16 @@
 
 <div align="center">
   <!-- Last Commit -->
-  <a href="h#">
+  <a href="#">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/audreydiez/AudreyDiez_4_28012021?style=for-the-badge">     
   </a>
   <!-- W3C  -->
   <a href="#">
-   <img alt="W3C Validation" src="https://img.shields.io/w3c-validation/default?style=for-the-badge&targetUrl=https%3A%2F%2Faudreydiez.github.io%2FAudreyDiez_4_28012021%2F%23">
+    <img alt="W3C Validation" src="https://img.shields.io/w3c-validation/html?style=for-the-badge&targetUrl=https%3A%2F%2Faudreydiez.github.io%2FAudreyDiez_4_28012021">  
+    </a> 
+<!-- website  -->
+  <a href="#">
+   <img alt="Website" src="https://img.shields.io/website?down_message=Offline&style=for-the-badge&up_message=Online&url=https%3A%2F%2Faudreydiez.github.io%2FAudreyDiez_4_28012021%2F%23">
   </a> 
 </div>
 
@@ -45,6 +49,7 @@
 - __Commented:__ Yes !
 
 ## Global Object 
+All inputs have to be validated then `'global'` turn `'true'`.
 ```js
 const formCheck = {
     global : false,
@@ -75,13 +80,13 @@ For Running on your machine :
 Run `npm install`
 
 
-## Global Object
-In `'webpack.config.js'`, use following script for start hot reload server, build and push in `'gh-pages'` branch.
+## Command Line Utility
+Configured in `'package.json'`, use following script for start hot reload server, build and push in `'gh-pages'` branch.
 ```js
 "scripts": {
     "dev": "webpack --mode development",
     "start": "webpack serve --open 'Chrome'",
     "build": "webpack build",
     "deploy": "gh-pages -d dist"
-  },
+  }
 ```

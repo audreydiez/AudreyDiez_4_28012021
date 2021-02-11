@@ -36,6 +36,7 @@ modalBg.addEventListener('click',  closeModal);
 function launchModal() {
     modalBg.style.display = "block";
 
+    // Initialisation des fonctions de la modale
     btnSubmit.removeEventListener("click", closeModal);
     btnSubmit.innerHTML = "C'est Parti";
     btnSubmit.addEventListener("click", submitEngine);
@@ -45,6 +46,7 @@ function launchModal() {
 
 export function closeModal() {
 
+    // Reset des styles utilisés si le formulaire a été validé
     modalBody.style.left = "0";
     modalBg.style.display = "none";
     modalPassed.style.display = "none";

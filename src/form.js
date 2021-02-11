@@ -47,7 +47,7 @@ const formCheck = {
 
 
 /*
- submit listener
+ Vérification de tous les inputs
 */
 
 function checkInputs (input) {
@@ -175,7 +175,7 @@ function formCheckIsValid(){
 
 
 function displayPassedMessage (){
-
+    // Affichage "Merci pour votre inscription"
     modalBody.style.left = parseFloat(getComputedStyle(modalBody).left) + -100 + '%';
     setTimeout(function(){
         modalPassed.style.display = "block";
@@ -189,20 +189,17 @@ function displayPassedMessage (){
 }
 
 /*
- Submit engine
+ Moteur de validation du formulaire
 */
 export function submitEngine () {
-
 
     for (let input in formCheck.inputs) {
 
             // On test l'input
             checkInputs(input);
 
-
             // On vérifie si tout a été validé
             formCheckIsValid();
-
 
     }
     if (formCheck.global){
@@ -237,9 +234,10 @@ function initForm() {
         else {
             eval(input).value = "";
         }
-        // On réset la case "prévenu pour les prochains event"
+        // On reset la case "prévenu pour les prochains event"
         nextEvent.checked = false;
-        // On réset l'objet formCheck
+
+        // On reset l'objet formCheck
         input = false;
     }
     formCheck.global = false;
