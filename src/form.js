@@ -54,28 +54,31 @@ function checkInputs (input) {
 
         if (input.toString() === "firstName"){
 
-            if (firstName.value.length < 2){
+            // Deux caractères de a à z avec possibilité de tirets et d'espaces entre deux mots sauf au début du string
+            let matchName = /^(?=.{2,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$/;
+            if (!matchName.test(firstName.value)) {
                 formCheck.inputs.firstName = false;
                 toggleErrorMsg(input);
             }
             else {
-                hideErrorMsg(input);
                 formCheck.inputs.firstName = true;
+                hideErrorMsg(input);
             }
-            console.log("first testé " + formCheck.inputs[input] );
+
         }
 
         else if (input.toString() === "lastName"){
 
-            if (lastName.value.length < 2){
+            let matchLastName = /^(?=.{2,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$/;
+            if (!matchLastName.test(lastName.value)) {
                 formCheck.inputs.lastName = false;
                 toggleErrorMsg(input);
             }
             else {
-                hideErrorMsg(input);
                 formCheck.inputs.lastName = true;
+                hideErrorMsg(input);
             }
-            console.log("last testé " + formCheck.inputs[input] );
+
         }
 
         else if (input.toString() === "email"){
@@ -106,7 +109,10 @@ function checkInputs (input) {
 
         else if (input.toString() === "gameOnParticipation"){
 
-            if (gameOnParticipation.value === '') {
+
+            // autorise des chiffres à partir de 0 uniquement
+            let matchGameParticipation = /^[0-9]\d*$/;
+            if (!matchGameParticipation.test(gameOnParticipation.value)) {
                 formCheck.inputs.gameOnParticipation = false;
                 toggleErrorMsg(input);
 
@@ -115,11 +121,13 @@ function checkInputs (input) {
                 formCheck.inputs.gameOnParticipation = true;
                 hideErrorMsg(input);
             }
+
+
         }
 
         else if (input.toString() === "city"){
             let cityRadioBlock = document.querySelectorAll('input[type="radio"]:checked');
-            console.log(cityRadioBlock);
+
             if (cityRadioBlock.length !== 1 ) {
                 formCheck.inputs.city = false;
                 toggleErrorMsg(input, false);
@@ -170,7 +178,7 @@ function formCheckIsValid(){
             formCheck.global = false;
         }
     }
-    console.log("global "+ formCheck.global);
+    //console.log("global "+ formCheck.global);
 }
 
 
@@ -206,10 +214,10 @@ export function submitEngine () {
         displayPassedMessage();
         initForm();
         initErrorMsg();
-        console.log("youpi");
+
 
     }
-    console.log(formCheck);
+    //console.log(formCheck);
 }
 
 
